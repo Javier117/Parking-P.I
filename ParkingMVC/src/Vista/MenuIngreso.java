@@ -128,7 +128,7 @@ public class MenuIngreso extends javax.swing.JFrame {
 
     private void JBTNCamionetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBTNCamionetaActionPerformed
         
-        MainMenu.ConfigurarMenu(3);
+        MainMenu.ConfigurarMenu(2);
         MainMenu.setVisible(true);
         dispose();
     }//GEN-LAST:event_JBTNCamionetaActionPerformed

@@ -41,9 +41,10 @@ public class menuprincipal extends javax.swing.JFrame {
         JLBLtipo = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         JLBLNom_owner = new javax.swing.JLabel();
-        JCBTipo_de_Vehiculo = new javax.swing.JComboBox<>();
+        JCBTipo_de_Vehiculo = new javax.swing.JComboBox<String>();
         JBTNCerrar = new javax.swing.JButton();
         JLBLFecha = new javax.swing.JLabel();
+        JBTNVolver = new javax.swing.JButton();
         JLBLFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -96,9 +97,8 @@ public class menuprincipal extends javax.swing.JFrame {
         JLBLNom_owner.setText("Numero de _____:");
         getContentPane().add(JLBLNom_owner, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 260, 170, -1));
 
-        JCBTipo_de_Vehiculo.setEditable(true);
         JCBTipo_de_Vehiculo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        JCBTipo_de_Vehiculo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Carro", "Moto", "Camioneta", "Bicicleta" }));
+        JCBTipo_de_Vehiculo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Carro", "Moto", "Camioneta", "Bicicleta" }));
         JCBTipo_de_Vehiculo.setFocusable(false);
         getContentPane().add(JCBTipo_de_Vehiculo, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 170, 230, -1));
 
@@ -114,6 +114,14 @@ public class menuprincipal extends javax.swing.JFrame {
         JLBLFecha.setForeground(new java.awt.Color(255, 255, 255));
         JLBLFecha.setText("--:--:--");
         getContentPane().add(JLBLFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 50, 270, 40));
+
+        JBTNVolver.setText("Volver");
+        JBTNVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBTNVolverActionPerformed(evt);
+            }
+        });
+        getContentPane().add(JBTNVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 10, 70, -1));
 
         JLBLFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo2.jpg"))); // NOI18N
         getContentPane().add(JLBLFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-110, -10, 750, 410));
@@ -134,6 +142,16 @@ public class menuprincipal extends javax.swing.JFrame {
         System.exit(0);
         
     }//GEN-LAST:event_JBTNCerrarActionPerformed
+
+    private void JBTNVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBTNVolverActionPerformed
+        
+        MenuIngreso menu=new MenuIngreso();
+        menu.setVisible(true);
+        dispose();
+        
+        
+        
+    }//GEN-LAST:event_JBTNVolverActionPerformed
 
     /**
      * @param args the command line arguments
@@ -240,6 +258,7 @@ public void ConfigurarMenu(int Numero_menu)
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JBTNCerrar;
+    private javax.swing.JButton JBTNVolver;
     private javax.swing.JComboBox<String> JCBTipo_de_Vehiculo;
     private javax.swing.JLabel JLBLFecha;
     private javax.swing.JLabel JLBLFondo;
