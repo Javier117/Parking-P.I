@@ -6,6 +6,7 @@
 package modelo;
 
 import BO.*;
+import java.util.Iterator;
 
 /**
  *
@@ -17,7 +18,43 @@ public class model {
     Vehiculo[] ParkingCarros=new Vehiculo[30];
     Vehiculo[] ParkingCamionetas=new Vehiculo[20];
     Vehiculo[] ParkingMotos=new Vehiculo[45];
-
+    
+    
+    
+    
+    public int revisar_parkingVehiculo(int Arreglo)
+    {   
+        Vehiculo[] review;
+       switch(Arreglo)
+       {
+          case 0:review=ParkingCarros;break;
+          case 1:review=ParkingMotos;break;
+          case 2:review=ParkingCamionetas;break;
+          default:System.out.println("Error /método_  revisar_parkingVehiculo");break;     
+       } 
+        
+       int contador=0;
+        for(Vehiculo x:ParkingCarros)
+        {
+            try
+            {
+                x.getPlaca();
+                contador+=1;
+            }
+            catch(Exception ex)
+            {
+                break;
+            }
+        }
+        return contador;
+    }
+    
+    
+    
+    
+    
+    
+    
     
     
     //GETTERS y SETTERS

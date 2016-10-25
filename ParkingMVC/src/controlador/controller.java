@@ -5,10 +5,30 @@
  */
 package controlador;
 
+import modelo.model;
+
 /**
  *
  * @author usuario
  */
 public class controller {
+    
+    model modelo;
+            
+      public controller()
+      {
+      modelo=new model();
+      }      
+    
+    public int  revisar_parkingController(int Arreglo)
+    {
+        return modelo.revisar_parkingVehiculo(Arreglo);
+    }
+    
+    
+    
+    
+    
+    
     
 }

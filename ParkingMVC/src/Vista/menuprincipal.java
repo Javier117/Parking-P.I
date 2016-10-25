@@ -5,6 +5,7 @@
  */
 package Vista;
 
+import controlador.controller;
 import java.util.Calendar;
 import javax.swing.JOptionPane;
 
@@ -18,12 +19,14 @@ public class menuprincipal extends javax.swing.JFrame {
     private boolean MenuBici;
     private boolean MenuCamioneta;
     private boolean MenuCarro;
-    
+    controller control;
     
     
     public menuprincipal() {
         initComponents();
+        control =new controller();
         setLocationRelativeTo(null);
+        
     }
 
    
@@ -45,6 +48,7 @@ public class menuprincipal extends javax.swing.JFrame {
         JBTNCerrar = new javax.swing.JButton();
         JLBLFecha = new javax.swing.JLabel();
         JBTNVolver = new javax.swing.JButton();
+        JBTNCupos = new javax.swing.JButton();
         JLBLFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -84,6 +88,7 @@ public class menuprincipal extends javax.swing.JFrame {
         JLBLPlaca.setText("Placa:");
         getContentPane().add(JLBLPlaca, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, 200, -1));
 
+        JTFModelo.setToolTipText("");
         JTFModelo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JTFModeloActionPerformed(evt);
@@ -109,7 +114,13 @@ public class menuprincipal extends javax.swing.JFrame {
 
         JCBTipo_de_Vehiculo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         JCBTipo_de_Vehiculo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Carro", "Moto", "Camioneta", "Bicicleta" }));
+        JCBTipo_de_Vehiculo.setEditor(null);
         JCBTipo_de_Vehiculo.setFocusable(false);
+        JCBTipo_de_Vehiculo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JCBTipo_de_VehiculoActionPerformed(evt);
+            }
+        });
         getContentPane().add(JCBTipo_de_Vehiculo, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 170, 230, -1));
 
         JBTNCerrar.setText("Cerrar");
@@ -123,7 +134,7 @@ public class menuprincipal extends javax.swing.JFrame {
         JLBLFecha.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
         JLBLFecha.setForeground(new java.awt.Color(255, 255, 255));
         JLBLFecha.setText("--:--:--");
-        getContentPane().add(JLBLFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 50, 270, 40));
+        getContentPane().add(JLBLFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 50, 270, 40));
 
         JBTNVolver.setText("Volver");
         JBTNVolver.addActionListener(new java.awt.event.ActionListener() {
@@ -132,6 +143,14 @@ public class menuprincipal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(JBTNVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 10, 70, -1));
+
+        JBTNCupos.setText("Cupos");
+        JBTNCupos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBTNCuposActionPerformed(evt);
+            }
+        });
+        getContentPane().add(JBTNCupos, new org.netbeans.lib.awtextra.AbsoluteConstraints(343, 10, 70, -1));
 
         JLBLFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo2.jpg"))); // NOI18N
         getContentPane().add(JLBLFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-110, -10, 750, 410));
@@ -167,7 +186,8 @@ public class menuprincipal extends javax.swing.JFrame {
      
        if(ConfirmarCampos())
         {
-        
+           ingresar();
+           
         }
         
         
@@ -181,6 +201,23 @@ public class menuprincipal extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_JBTNRetirarActionPerformed
+
+    private void JCBTipo_de_VehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JCBTipo_de_VehiculoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JCBTipo_de_VehiculoActionPerformed
+
+    private void JBTNCuposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBTNCuposActionPerformed
+      
+        
+          
+            System.out.println("Cupos carros: "+control.revisar_parkingController(0));
+            System.out.println("Cupos motos: "+control.revisar_parkingController(1));
+            System.out.println("Cupos camionetas: "+control.revisar_parkingController(2));
+        
+        
+        
+        
+    }//GEN-LAST:event_JBTNCuposActionPerformed
 
     /**
      * @param args the command line arguments
@@ -230,7 +267,8 @@ public void ConfigurarMenu(int Numero_menu)
         case 0:this.JCBTipo_de_Vehiculo.setSelectedIndex(0);break;
         case 1:this.JCBTipo_de_Vehiculo.setSelectedIndex(1);break;
         case 2:this.JCBTipo_de_Vehiculo.setSelectedIndex(2);break;
-        case 3:this.JCBTipo_de_Vehiculo.setSelectedIndex(3);this.JLBLPlaca.setText("Número de Marco:");break;
+        case 3:this.JCBTipo_de_Vehiculo.setSelectedIndex(3);this.JLBLPlaca.setText("Número de Marco:");JTFModelo.setEditable(false);
+                                                            JCBTipo_de_Vehiculo.setEnabled(false);break;
         default:JOptionPane.showMessageDialog(null,"Error al ingresar a menu"); break;
     
     }
@@ -255,17 +293,37 @@ public void ConfigurarMenu(int Numero_menu)
     
     private boolean ConfirmarCampos()
     {   
-        boolean CamposLlenos;
-         if (JTFPlaca.getText().equals("")||JTFPlaca.getText().equals(" ")||JTFModelo.getText().equals("")||JTFModelo.getText().equals(" ")||
-                JTFPropietario.getText().equals("")||JTFPropietario.getText().equals(" "))
+        boolean CamposLlenos=true;
+         if (JTFPlaca.getText().equals("")||JTFPlaca.getText().equals(" ")||JTFPropietario.getText().equals("")||JTFPropietario.getText().equals(" "))
             {
                 JOptionPane.showMessageDialog(null,"Por favor llene todos los campos","Error en los campos",JOptionPane.ERROR_MESSAGE);
                 CamposLlenos=false;
             }
+         if(JTFModelo.isEditable())
+         {
+             if(JTFModelo.getText().equals("")||JTFModelo.getText().equals(" ")) CamposLlenos=false;
+         }
          else CamposLlenos=true;
              
          return CamposLlenos;
     }
+    
+    
+    
+    private void ingresar()
+    {
+        switch(this.JCBTipo_de_Vehiculo.getSelectedIndex())
+        {
+            case 0:System.out.println("carros");break;
+            case 1:System.out.println("motos");break;
+            case 2:System.out.println("camionetas");break;
+            case 3:System.out.println("bicis");break;
+            
+        
+        }
+    
+    }
+    
     
     public boolean isMenuMoto() {
         return MenuMoto;
@@ -302,6 +360,7 @@ public void ConfigurarMenu(int Numero_menu)
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JBTNCerrar;
+    private javax.swing.JButton JBTNCupos;
     private javax.swing.JButton JBTNIngresar;
     private javax.swing.JButton JBTNRetirar;
     private javax.swing.JButton JBTNVolver;
