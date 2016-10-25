@@ -94,7 +94,7 @@ public class menuprincipal extends javax.swing.JFrame {
 
         JLBLNom_owner.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         JLBLNom_owner.setForeground(new java.awt.Color(255, 255, 255));
-        JLBLNom_owner.setText("Numero de _____:");
+        JLBLNom_owner.setText("Propietario:");
         getContentPane().add(JLBLNom_owner, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 260, 170, -1));
 
         JCBTipo_de_Vehiculo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
