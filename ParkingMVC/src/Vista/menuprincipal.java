@@ -5,6 +5,7 @@
  */
 package Vista;
 
+import BO.Vehiculo;
 import controlador.controller;
 import java.util.Calendar;
 import javax.swing.JOptionPane;
@@ -20,6 +21,8 @@ public class menuprincipal extends javax.swing.JFrame {
     private boolean MenuCamioneta;
     private boolean MenuCarro;
     controller control;
+    int hora;
+    int minuto;
     
     
     public menuprincipal() {
@@ -284,8 +287,8 @@ public void ConfigurarMenu(int Numero_menu)
         Calendar fecha = Calendar.getInstance();
         int mes = fecha.get(Calendar.MONTH) + 1;
         int dia = fecha.get(Calendar.DAY_OF_MONTH);
-        int hora = fecha.get(Calendar.HOUR_OF_DAY);
-        int minuto = fecha.get(Calendar.MINUTE);
+        hora = fecha.get(Calendar.HOUR_OF_DAY);
+        minuto = fecha.get(Calendar.MINUTE);
         this.JLBLFecha.setText("Mes: "+mes+"|Día: "+dia+" |Hora "+hora+":"+minuto);
     
     }
@@ -311,15 +314,31 @@ public void ConfigurarMenu(int Numero_menu)
     
     
     private void ingresar()
-    {
+    {   
+        
+        Vehiculo vehiculo=new Vehiculo(JTFPlaca.getText(),JTFPropietario.getText(),JTFModelo.getText(),hora,minuto);
         switch(this.JCBTipo_de_Vehiculo.getSelectedIndex())
         {
-            case 0:System.out.println("carros");break;
-            case 1:System.out.println("motos");break;
-            case 2:System.out.println("camionetas");break;
+            case 0:
+                {
+                   System.out.println("carro "+vehiculo.getPlaca()); 
+                   control.ingresarVehiculoController(0, vehiculo);
+                }
+                break;
+            case 1:
+                {
+                    System.out.println("moto "+vehiculo.getPlaca());
+                    control.ingresarVehiculoController(1, vehiculo);
+                }break;
+            case 2:
+                {
+                    System.out.println("camioneta "+vehiculo.getPlaca());
+                    control.ingresarVehiculoController(2, vehiculo);
+                }break;
+                
+                
+                // FALTA EL DE BICICLETAS
             case 3:System.out.println("bicis");break;
-            
-        
         }
     
     }

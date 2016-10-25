@@ -14,27 +14,49 @@ import java.util.Iterator;
  */
 public class model {
     
-    bicicleta[] ParkingBicis=new bicicleta[20];
     Vehiculo[] ParkingCarros=new Vehiculo[30];
-    Vehiculo[] ParkingCamionetas=new Vehiculo[20];
     Vehiculo[] ParkingMotos=new Vehiculo[45];
+    Vehiculo[] ParkingCamionetas=new Vehiculo[20];
+    bicicleta[] ParkingBicis=new bicicleta[20];
+    
+    
+    
+    
+   public void ingresarVehiculo(int Tipo_de_Vehiculo,Vehiculo V)
+   {    
+       int puesto=revisar_parkingVehiculo(Tipo_de_Vehiculo);
+       switch(Tipo_de_Vehiculo)
+       {
+           case 0:ParkingCarros[puesto]=V;
+                  System.out.println("hora: "+ParkingCarros[puesto].getHora_entrada()+":"+ParkingCarros[puesto].getMinutos_entrada());
+                  break;
+           case 1:ParkingMotos[puesto]=V;
+                  System.out.println("hora: "+ParkingMotos[puesto].getHora_entrada()+":"+ParkingMotos[puesto].getMinutos_entrada());
+                  break;
+           case 2:ParkingCamionetas[puesto]=V;
+                  System.out.println("hora: "+ParkingCamionetas[puesto].getHora_entrada()+":"+ParkingCamionetas[puesto].getMinutos_entrada());
+                  break;
+       }
+       
+   } 
+    
     
     
     
     
     public int revisar_parkingVehiculo(int Arreglo)
     {   
-        Vehiculo[] review;
+        Vehiculo[] review=ParkingCarros;
        switch(Arreglo)
        {
-          case 0:review=ParkingCarros;break;
+          case 0:break;
           case 1:review=ParkingMotos;break;
           case 2:review=ParkingCamionetas;break;
           default:System.out.println("Error /método_  revisar_parkingVehiculo");break;     
        } 
         
        int contador=0;
-        for(Vehiculo x:ParkingCarros)
+        for(Vehiculo x:review)
         {
             try
             {
@@ -49,13 +71,7 @@ public class model {
         return contador;
     }
     
-    
-    
-    
-    
-    
-    
-    
+   
     
     //GETTERS y SETTERS
     

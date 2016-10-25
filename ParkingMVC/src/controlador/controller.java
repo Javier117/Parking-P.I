@@ -5,6 +5,7 @@
  */
 package controlador;
 
+import BO.*;
 import modelo.model;
 
 /**
@@ -26,7 +27,10 @@ public class controller {
     }
     
     
-    
+    public void ingresarVehiculoController(int TipoVehiculo,Vehiculo x)
+    {
+        modelo.ingresarVehiculo(TipoVehiculo, x);
+    }
     
     
     
