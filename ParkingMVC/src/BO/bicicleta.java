@@ -10,7 +10,7 @@ package BO;
  * @author usuario
  */
 public class bicicleta {
-    String color;
+    
     String owner;
     String marco;
     int hora_entrada;
@@ -18,9 +18,9 @@ public class bicicleta {
     
     
     
- public bicicleta(String Color , String Owner, String Marco, int Hora_Entrada, int Minutos_Entrada)
+ public bicicleta(String Marco,String Owner, int Hora_Entrada, int Minutos_Entrada)
     {       
-       this.color=Color;
+      
        this.owner=Owner;
        this.marco=Marco;
        this.hora_entrada=Hora_Entrada;
@@ -28,13 +28,7 @@ public class bicicleta {
     
     }
 
-    public String getColor() {
-        return color;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
-    }
+   
 
     public String getOwner() {
         return owner;
