@@ -39,9 +39,31 @@ public class model {
        }
        
    } 
+   
+   public void ingresarBici(bicicleta bici)
+   {
+            int puestobici=revisarParkingBicis();
+            ParkingBicis[puestobici]=bici;
+            System.out.println("hora: "+ParkingBicis[puestobici].getHora_entrada()+":"+ParkingBicis[puestobici].getMinutos_entrada());
+   }
     
-    
-    
+    public int revisarParkingBicis()
+    {
+            int contador=0;
+        for(bicicleta x:ParkingBicis)
+        {
+            try
+            {
+                x.getMarco();
+                contador+=1;
+            }
+            catch(Exception ex)
+            {
+                break;
+            }
+        }
+        return contador;
+    }
     
     
     public int revisar_parkingVehiculo(int Arreglo)

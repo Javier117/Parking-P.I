@@ -20,19 +20,26 @@ public class controller {
       {
       modelo=new model();
       }      
-    
+      
+      
     public int  revisar_parkingController(int Arreglo)
     {
         return modelo.revisar_parkingVehiculo(Arreglo);
-    }
-    
-    
+    }    
     public void ingresarVehiculoController(int TipoVehiculo,Vehiculo x)
     {
         modelo.ingresarVehiculo(TipoVehiculo, x);
     }
     
+    public int revisar_parkingBicisController()
+    {
+        return modelo.revisarParkingBicis();
+    }
     
+    public void ingresarBicisController(bicicleta bmx)
+    {
+        modelo.ingresarBici(bmx);
+    }
     
     
 }

@@ -5,7 +5,7 @@
  */
 package Vista;
 
-import BO.Vehiculo;
+import BO.*;
 import controlador.controller;
 import java.util.Calendar;
 import javax.swing.JOptionPane;
@@ -21,6 +21,8 @@ public class menuprincipal extends javax.swing.JFrame {
     private boolean MenuCamioneta;
     private boolean MenuCarro;
     controller control;
+    Vehiculo vehiculo;
+    bicicleta Bici;
     int hora;
     int minuto;
     
@@ -216,8 +218,8 @@ public class menuprincipal extends javax.swing.JFrame {
             System.out.println("Cupos carros: "+control.revisar_parkingController(0));
             System.out.println("Cupos motos: "+control.revisar_parkingController(1));
             System.out.println("Cupos camionetas: "+control.revisar_parkingController(2));
-        
-        
+            System.out.println("Cupos bicicletas: "+control.revisar_parkingBicisController());
+                
         
         
     }//GEN-LAST:event_JBTNCuposActionPerformed
@@ -316,29 +318,36 @@ public void ConfigurarMenu(int Numero_menu)
     private void ingresar()
     {   
         
-        Vehiculo vehiculo=new Vehiculo(JTFPlaca.getText(),JTFPropietario.getText(),JTFModelo.getText(),hora,minuto);
         switch(this.JCBTipo_de_Vehiculo.getSelectedIndex())
         {
             case 0:
                 {
+                   vehiculo=new Vehiculo(JTFPlaca.getText(),JTFPropietario.getText(),JTFModelo.getText(),hora,minuto);
                    System.out.println("carro "+vehiculo.getPlaca()); 
                    control.ingresarVehiculoController(0, vehiculo);
                 }
                 break;
             case 1:
                 {
+                    vehiculo=new Vehiculo(JTFPlaca.getText(),JTFPropietario.getText(),JTFModelo.getText(),hora,minuto);
                     System.out.println("moto "+vehiculo.getPlaca());
                     control.ingresarVehiculoController(1, vehiculo);
                 }break;
             case 2:
                 {
+                     vehiculo=new Vehiculo(JTFPlaca.getText(),JTFPropietario.getText(),JTFModelo.getText(),hora,minuto);
                     System.out.println("camioneta "+vehiculo.getPlaca());
                     control.ingresarVehiculoController(2, vehiculo);
                 }break;
                 
                 
                 // FALTA EL DE BICICLETAS
-            case 3:System.out.println("bicis");break;
+            case 3:
+                {   
+                    Bici=new bicicleta(JTFPlaca.getText(),JTFPropietario.getText(),hora,minuto);
+                    System.out.println("Bicicleta "+Bici.getMarco());
+                    control.ingresarBicisController(Bici);
+                }break;
         }
     
     }
