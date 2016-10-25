@@ -67,7 +67,7 @@ public class MenuIngreso extends javax.swing.JFrame {
                 JBTNCamionetaActionPerformed(evt);
             }
         });
-        getContentPane().add(JBTNCamioneta, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, 170, 130));
+        getContentPane().add(JBTNCamioneta, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, 170, 130));
 
         JBTNCarro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/carro_icono.png"))); // NOI18N
         JBTNCarro.addActionListener(new java.awt.event.ActionListener() {
@@ -97,13 +97,14 @@ public class MenuIngreso extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void JBTNBicicletaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBTNBicicletaActionPerformed
-       MainMenu.ConfigurarMenu(3);
+       
+        MainMenu.ConfigurarMenu(3);
         MainMenu.setVisible(true);
         dispose();
     }//GEN-LAST:event_JBTNBicicletaActionPerformed
 
     private void JBTNSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBTNSalirActionPerformed
-        // TODO add your handling code here:
+        
         System.exit(0);
         
     }//GEN-LAST:event_JBTNSalirActionPerformed

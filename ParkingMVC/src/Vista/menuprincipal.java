@@ -32,12 +32,12 @@ public class menuprincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         LBLTitulo = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        JBTNRetirar = new javax.swing.JButton();
+        JBTNIngresar = new javax.swing.JButton();
         JTFPlaca = new javax.swing.JTextField();
         JLBLPlaca = new javax.swing.JLabel();
         JTFModelo = new javax.swing.JTextField();
-        JTFNom_dueño = new javax.swing.JTextField();
+        JTFPropietario = new javax.swing.JTextField();
         JLBLtipo = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         JLBLNom_owner = new javax.swing.JLabel();
@@ -56,11 +56,21 @@ public class menuprincipal extends javax.swing.JFrame {
         LBLTitulo.setText("Parking");
         getContentPane().add(LBLTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 233, 42));
 
-        jButton1.setText("Retirar");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 330, 120, 30));
+        JBTNRetirar.setText("Retirar");
+        JBTNRetirar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBTNRetirarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(JBTNRetirar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 330, 120, 30));
 
-        jButton2.setText("Ingresar");
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 330, 120, 30));
+        JBTNIngresar.setText("Ingresar");
+        JBTNIngresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBTNIngresarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(JBTNIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 330, 120, 30));
 
         JTFPlaca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -80,7 +90,7 @@ public class menuprincipal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(JTFModelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 210, 230, -1));
-        getContentPane().add(JTFNom_dueño, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 260, 230, -1));
+        getContentPane().add(JTFPropietario, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 260, 230, -1));
 
         JLBLtipo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         JLBLtipo.setForeground(new java.awt.Color(255, 255, 255));
@@ -153,6 +163,25 @@ public class menuprincipal extends javax.swing.JFrame {
         
     }//GEN-LAST:event_JBTNVolverActionPerformed
 
+    private void JBTNIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBTNIngresarActionPerformed
+     
+       if(ConfirmarCampos())
+        {
+        
+        }
+        
+        
+    }//GEN-LAST:event_JBTNIngresarActionPerformed
+
+    private void JBTNRetirarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBTNRetirarActionPerformed
+        
+         if(ConfirmarCampos())
+        {
+        
+        }
+        
+    }//GEN-LAST:event_JBTNRetirarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -223,6 +252,21 @@ public void ConfigurarMenu(int Numero_menu)
     
     }
     
+    
+    private boolean ConfirmarCampos()
+    {   
+        boolean CamposLlenos;
+         if (JTFPlaca.getText().equals("")||JTFPlaca.getText().equals(" ")||JTFModelo.getText().equals("")||JTFModelo.getText().equals(" ")||
+                JTFPropietario.getText().equals("")||JTFPropietario.getText().equals(" "))
+            {
+                JOptionPane.showMessageDialog(null,"Por favor llene todos los campos","Error en los campos",JOptionPane.ERROR_MESSAGE);
+                CamposLlenos=false;
+            }
+         else CamposLlenos=true;
+             
+         return CamposLlenos;
+    }
+    
     public boolean isMenuMoto() {
         return MenuMoto;
     }
@@ -258,6 +302,8 @@ public void ConfigurarMenu(int Numero_menu)
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JBTNCerrar;
+    private javax.swing.JButton JBTNIngresar;
+    private javax.swing.JButton JBTNRetirar;
     private javax.swing.JButton JBTNVolver;
     private javax.swing.JComboBox<String> JCBTipo_de_Vehiculo;
     private javax.swing.JLabel JLBLFecha;
@@ -266,11 +312,9 @@ public void ConfigurarMenu(int Numero_menu)
     private javax.swing.JLabel JLBLPlaca;
     private javax.swing.JLabel JLBLtipo;
     private javax.swing.JTextField JTFModelo;
-    private javax.swing.JTextField JTFNom_dueño;
     private javax.swing.JTextField JTFPlaca;
+    private javax.swing.JTextField JTFPropietario;
     private javax.swing.JLabel LBLTitulo;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel4;
     // End of variables declaration//GEN-END:variables
 }
