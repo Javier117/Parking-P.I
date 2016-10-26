@@ -7,6 +7,7 @@ package modelo;
 
 import BO.*;
 import java.util.Iterator;
+import java.util.Scanner;
 
 /**
  *
@@ -94,6 +95,9 @@ public class model {
     }
     
    
+
+    
+   
     
     //GETTERS y SETTERS
     
@@ -129,10 +133,6 @@ public class model {
     public void setParkingMotos(Vehiculo[] ParkingMotos) {
         this.ParkingMotos = ParkingMotos;
     }
-    
-    
-    
-    
     
     
     
