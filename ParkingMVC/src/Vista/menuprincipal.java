@@ -8,6 +8,7 @@ package Vista;
 import BO.*;
 import controlador.controller;
 import java.util.Calendar;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -25,12 +26,14 @@ public class menuprincipal extends javax.swing.JFrame {
     bicicleta Bici;
     int hora;
     int minuto;
+   
     
     
     public menuprincipal() {
         initComponents();
         control =new controller();
         setLocationRelativeTo(null);
+        this.setIconImage(new ImageIcon(getClass().getResource("../imagenes/carrito.jpg")).getImage());
         
     }
 
@@ -49,7 +52,7 @@ public class menuprincipal extends javax.swing.JFrame {
         JLBLtipo = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         JLBLNom_owner = new javax.swing.JLabel();
-        JCBTipo_de_Vehiculo = new javax.swing.JComboBox<String>();
+        JCBTipo_de_Vehiculo = new javax.swing.JComboBox<>();
         JBTNCerrar = new javax.swing.JButton();
         JLBLFecha = new javax.swing.JLabel();
         JBTNVolver = new javax.swing.JButton();
@@ -100,6 +103,12 @@ public class menuprincipal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(JTFModelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 210, 230, -1));
+
+        JTFPropietario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                JTFPropietarioKeyTyped(evt);
+            }
+        });
         getContentPane().add(JTFPropietario, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 260, 230, -1));
 
         JLBLtipo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -118,8 +127,7 @@ public class menuprincipal extends javax.swing.JFrame {
         getContentPane().add(JLBLNom_owner, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 260, 170, -1));
 
         JCBTipo_de_Vehiculo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        JCBTipo_de_Vehiculo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Carro", "Moto", "Camioneta", "Bicicleta" }));
-        JCBTipo_de_Vehiculo.setEditor(null);
+        JCBTipo_de_Vehiculo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Carro", "Moto", "Camioneta", "Bicicleta" }));
         JCBTipo_de_Vehiculo.setFocusable(false);
         JCBTipo_de_Vehiculo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -199,9 +207,10 @@ public class menuprincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_JBTNIngresarActionPerformed
 
     private void JBTNRetirarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBTNRetirarActionPerformed
-        
+       
          if(ConfirmarCampos())
         {
+ 
         
         }
         
@@ -223,6 +232,24 @@ public class menuprincipal extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_JBTNCuposActionPerformed
+
+    private void JTFPropietarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JTFPropietarioKeyTyped
+        // TODO add your handling code here:
+            char c=evt.getKeyChar(); 
+             
+         
+          if(Character.isDigit(c)) { 
+              getToolkit().beep(); 
+               
+              evt.consume(); 
+               
+              JOptionPane.showMessageDialog(null, "Solo Se Admiten Letras");
+               
+          } 
+             
+                     
+        
+    }//GEN-LAST:event_JTFPropietarioKeyTyped
 
     /**
      * @param args the command line arguments

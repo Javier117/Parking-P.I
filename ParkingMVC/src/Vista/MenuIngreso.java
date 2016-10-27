@@ -46,6 +46,7 @@ public class MenuIngreso extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         JBTNBicicleta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/bike_icono.png"))); // NOI18N
+        JBTNBicicleta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         JBTNBicicleta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JBTNBicicletaActionPerformed(evt);
@@ -54,6 +55,7 @@ public class MenuIngreso extends javax.swing.JFrame {
         getContentPane().add(JBTNBicicleta, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 250, 170, 130));
 
         JBTNMoto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/moto_icono.png"))); // NOI18N
+        JBTNMoto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         JBTNMoto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JBTNMotoActionPerformed(evt);
@@ -62,6 +64,7 @@ public class MenuIngreso extends javax.swing.JFrame {
         getContentPane().add(JBTNMoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 80, 170, 130));
 
         JBTNCamioneta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/camioneta_icono.png"))); // NOI18N
+        JBTNCamioneta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         JBTNCamioneta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JBTNCamionetaActionPerformed(evt);
@@ -70,6 +73,7 @@ public class MenuIngreso extends javax.swing.JFrame {
         getContentPane().add(JBTNCamioneta, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, 170, 130));
 
         JBTNCarro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/carro_icono.png"))); // NOI18N
+        JBTNCarro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         JBTNCarro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JBTNCarroActionPerformed(evt);
@@ -83,6 +87,7 @@ public class MenuIngreso extends javax.swing.JFrame {
 
         JBTNSalir.setFont(new java.awt.Font("Agency FB", 1, 14)); // NOI18N
         JBTNSalir.setText("Cerrar");
+        JBTNSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         JBTNSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JBTNSalirActionPerformed(evt);
