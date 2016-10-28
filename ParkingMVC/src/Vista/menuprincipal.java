@@ -26,18 +26,15 @@ public class menuprincipal extends javax.swing.JFrame {
     bicicleta Bici;
     int hora;
     int minuto;
-   
-    
-    
+
     public menuprincipal() {
         initComponents();
-        control =new controller();
+        control = new controller();
         setLocationRelativeTo(null);
         this.setIconImage(new ImageIcon(getClass().getResource("../imagenes/carro.png")).getImage());
-        
+
     }
 
-   
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -180,84 +177,79 @@ public class menuprincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_JTFPlacaActionPerformed
 
     private void JBTNCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBTNCerrarActionPerformed
-        
+
         System.exit(0);
-        
+
     }//GEN-LAST:event_JBTNCerrarActionPerformed
 
     private void JBTNVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBTNVolverActionPerformed
-        
-        MenuIngreso menu=new MenuIngreso();
+
+        MenuIngreso menu = new MenuIngreso();
         menu.setVisible(true);
         dispose();
-        
-        
-        
+
+
     }//GEN-LAST:event_JBTNVolverActionPerformed
 
     private void JBTNIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBTNIngresarActionPerformed
-     
-       if(ConfirmarCampos())
-        {
-           ingresar();
-           
+
+        if (ConfirmarCampos()) {
+            ingresar();
+
         }
-       JTFPlaca.setText("");
-       JTFPlaca.requestFocus();
-        
+        JTFPlaca.setText("");
+        JTFPlaca.requestFocus();
+
     }//GEN-LAST:event_JBTNIngresarActionPerformed
 
     private void JBTNRetirarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBTNRetirarActionPerformed
-       
-         if(ConfirmarCampos())
-        {
-            switch(JCBTipo_de_Vehiculo.getSelectedIndex())
-            {
-                case 0:break;
-                case 1:break;
-                case 2:break;
-                case 3:control.RetirarBiciController(JTFPlaca.getText(),JTFPropietario.getText());break;
-                
-            }        
+
+        if (ConfirmarCampos()) {
+            switch (JCBTipo_de_Vehiculo.getSelectedIndex()) {
+                case 0:
+                    break;
+                case 1:
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    control.RetirarBiciController(JTFPlaca.getText(), JTFPropietario.getText());
+                    break;
+
+            }
         }
-        
+
     }//GEN-LAST:event_JBTNRetirarActionPerformed
 
     private void JCBTipo_de_VehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JCBTipo_de_VehiculoActionPerformed
-       
-        
-        
+
+
     }//GEN-LAST:event_JCBTipo_de_VehiculoActionPerformed
 
     private void JBTNCuposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBTNCuposActionPerformed
-      
-        
-          
-            System.out.println("Cupos carros: "+control.revisar_parkingController(0));
-            System.out.println("Cupos motos: "+control.revisar_parkingController(1));
-            System.out.println("Cupos camionetas: "+control.revisar_parkingController(2));
-            System.out.println("Cupos bicicletas: "+control.revisar_parkingBicisController());
-                
-        
-        
+
+        System.out.println("Cupos carros: " + control.revisar_parkingController(0));
+        System.out.println("Cupos motos: " + control.revisar_parkingController(1));
+        System.out.println("Cupos camionetas: " + control.revisar_parkingController(2));
+        System.out.println("Cupos bicicletas: " + control.revisar_parkingBicisController());
+
+
     }//GEN-LAST:event_JBTNCuposActionPerformed
 
     private void JTFPropietarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JTFPropietarioKeyTyped
         // TODO add your handling code here:
-            char c=evt.getKeyChar(); 
-             
-         
-          if(Character.isDigit(c)) { 
-              getToolkit().beep(); 
-               
-              evt.consume(); 
-               
-              JOptionPane.showMessageDialog(null, "Solo Se Admiten Letras");
-               
-          } 
-             
-                     
-        
+        char c = evt.getKeyChar();
+
+        if (Character.isDigit(c)) {
+            getToolkit().beep();
+
+            evt.consume();
+
+            JOptionPane.showMessageDialog(null, "Solo Se Admiten Letras");
+
+        }
+
+
     }//GEN-LAST:event_JTFPropietarioKeyTyped
 
     /**
@@ -295,100 +287,92 @@ public class menuprincipal extends javax.swing.JFrame {
         });
     }
 
-    
-    
-    
-public void ConfigurarMenu(int Numero_menu)
-{
-    switch(Numero_menu)
-    {   
-        // cero:configura menu para ingresar  carros
-        // uno: para motos        dos:para camionetas
-        // tres: para bicicletas
-        case 0:this.JCBTipo_de_Vehiculo.setSelectedIndex(0);break;
-        case 1:this.JCBTipo_de_Vehiculo.setSelectedIndex(1);break;
-        case 2:this.JCBTipo_de_Vehiculo.setSelectedIndex(2);break;
-        case 3:this.JCBTipo_de_Vehiculo.setSelectedIndex(3);this.JLBLPlaca.setText("Número de Marco:");JTFModelo.setEditable(false);
-                                                            JCBTipo_de_Vehiculo.setEnabled(false);break;
-        default:JOptionPane.showMessageDialog(null,"Error al ingresar a menu"); break;
-    
+    public void ConfigurarMenu(int Numero_menu) {
+        switch (Numero_menu) {
+            // cero:configura menu para ingresar  carros
+            // uno: para motos        dos:para camionetas
+            // tres: para bicicletas
+            case 0:
+                this.JCBTipo_de_Vehiculo.setSelectedIndex(0);
+                break;
+            case 1:
+                this.JCBTipo_de_Vehiculo.setSelectedIndex(1);
+                break;
+            case 2:
+                this.JCBTipo_de_Vehiculo.setSelectedIndex(2);
+                break;
+            case 3:
+                this.JCBTipo_de_Vehiculo.setSelectedIndex(3);
+                this.JLBLPlaca.setText("Número de Marco:");
+                JTFModelo.setEditable(false);
+                JCBTipo_de_Vehiculo.setEnabled(false);
+                break;
+            default:
+                JOptionPane.showMessageDialog(null, "Error al ingresar a menu");
+                break;
+
+        }
+        definirfecha();
+
     }
-    definirfecha();
-    
-}    
-    
-    
-    
-    
-    public void definirfecha()
-    {
+
+    public void definirfecha() {
         Calendar fecha = Calendar.getInstance();
         int mes = fecha.get(Calendar.MONTH) + 1;
         int dia = fecha.get(Calendar.DAY_OF_MONTH);
         hora = fecha.get(Calendar.HOUR_OF_DAY);
         minuto = fecha.get(Calendar.MINUTE);
-        this.JLBLFecha.setText("Mes: "+mes+"|Día: "+dia+" |Hora "+hora+":"+minuto);
-    
+        this.JLBLFecha.setText("Mes: " + mes + "|Día: " + dia + " |Hora " + hora + ":" + minuto);
+
     }
-    
-    
-    private boolean ConfirmarCampos()
-    {   
-        boolean CamposLlenos=true;
-         if (JTFPlaca.getText().equals("")||JTFPlaca.getText().equals(" ")||JTFPropietario.getText().equals("")||JTFPropietario.getText().equals(" "))
-            {
-                JOptionPane.showMessageDialog(null,"Por favor llene todos los campos","Error en los campos",JOptionPane.ERROR_MESSAGE);
-                CamposLlenos=false;
+
+    private boolean ConfirmarCampos() {
+        boolean CamposLlenos = true;
+        if (JTFPlaca.getText().equals("") || JTFPlaca.getText().equals(" ") || JTFPropietario.getText().equals("") || JTFPropietario.getText().equals(" ")) {
+            JOptionPane.showMessageDialog(null, "Por favor llene todos los campos", "Error en los campos", JOptionPane.ERROR_MESSAGE);
+            CamposLlenos = false;
+        }
+        if (JTFModelo.isEditable()) {
+            if (JTFModelo.getText().equals("") || JTFModelo.getText().equals(" ")) {
+                CamposLlenos = false;
             }
-         if(JTFModelo.isEditable())
-         {
-             if(JTFModelo.getText().equals("")||JTFModelo.getText().equals(" ")) CamposLlenos=false;
-         }
-         else CamposLlenos=true;
-             
-         return CamposLlenos;
+        } else {
+            CamposLlenos = true;
+        }
+
+        return CamposLlenos;
     }
-    
-    
-    
-    private void ingresar()
-    {   
-        
-        switch(this.JCBTipo_de_Vehiculo.getSelectedIndex())
-        {
+
+    private void ingresar() {
+
+        switch (this.JCBTipo_de_Vehiculo.getSelectedIndex()) {
             case 0:
-                {
-                   vehiculo=new Vehiculo(JTFPlaca.getText(),JTFPropietario.getText(),JTFModelo.getText(),hora,minuto);
-                   System.out.println("carro "+vehiculo.getPlaca()); 
-                   control.ingresarVehiculoController(0, vehiculo);
-                }
+
+                vehiculo = new Vehiculo(JTFPlaca.getText(), JTFPropietario.getText(), JTFModelo.getText(), hora, minuto);
+                System.out.println("carro " + vehiculo.getPlaca());
+                control.ingresarVehiculoController(0, vehiculo);
                 break;
             case 1:
-                {
-                    vehiculo=new Vehiculo(JTFPlaca.getText(),JTFPropietario.getText(),JTFModelo.getText(),hora,minuto);
-                    System.out.println("moto "+vehiculo.getPlaca());
-                    control.ingresarVehiculoController(1, vehiculo);
-                }break;
+
+                vehiculo = new Vehiculo(JTFPlaca.getText(), JTFPropietario.getText(), JTFModelo.getText(), hora, minuto);
+                System.out.println("moto " + vehiculo.getPlaca());
+                control.ingresarVehiculoController(1, vehiculo);
+                break;
             case 2:
-                {
-                     vehiculo=new Vehiculo(JTFPlaca.getText(),JTFPropietario.getText(),JTFModelo.getText(),hora,minuto);
-                    System.out.println("camioneta "+vehiculo.getPlaca());
-                    control.ingresarVehiculoController(2, vehiculo);
-                }break;
-                
-                
-                // FALTA EL DE BICICLETAS
+                vehiculo = new Vehiculo(JTFPlaca.getText(), JTFPropietario.getText(), JTFModelo.getText(), hora, minuto);
+                System.out.println("camioneta " + vehiculo.getPlaca());
+                control.ingresarVehiculoController(2, vehiculo);
+                break;
+
             case 3:
-                {   
-                    Bici=new bicicleta(JTFPlaca.getText(),JTFPropietario.getText(),hora,minuto);
-                    System.out.println("Bicicleta "+Bici.getMarco());
-                    control.ingresarBicisController(Bici);
-                }break;
+                Bici = new bicicleta(JTFPlaca.getText(), JTFPropietario.getText(), hora, minuto);
+                System.out.println("Bicicleta " + Bici.getMarco());
+                control.ingresarBicisController(Bici);
+                break;
         }
-    
+
     }
-    
-    
+
     public boolean isMenuMoto() {
         return MenuMoto;
     }
@@ -420,8 +404,8 @@ public void ConfigurarMenu(int Numero_menu)
     public void setMenuCarro(boolean MenuCarro) {
         this.MenuCarro = MenuCarro;
     }
-   
-    
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JBTNCerrar;
     private javax.swing.JButton JBTNCupos;

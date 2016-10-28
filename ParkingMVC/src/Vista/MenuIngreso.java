@@ -38,8 +38,10 @@ public class MenuIngreso extends javax.swing.JFrame {
         JBTNCamioneta = new javax.swing.JButton();
         JBTNCarro = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        JBTNSalir = new javax.swing.JButton();
         JLBLFondo = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -86,18 +88,23 @@ public class MenuIngreso extends javax.swing.JFrame {
         jLabel1.setText("Parking 24/7");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 210, 260, 40));
 
-        JBTNSalir.setFont(new java.awt.Font("Agency FB", 1, 14)); // NOI18N
-        JBTNSalir.setText("Cerrar");
-        JBTNSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        JBTNSalir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JBTNSalirActionPerformed(evt);
-            }
-        });
-        getContentPane().add(JBTNSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(685, 10, 80, 30));
-
         JLBLFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo.jpg"))); // NOI18N
         getContentPane().add(JLBLFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-120, 0, 900, 440));
+
+        jMenu1.setText("Archivo");
+
+        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_X, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem1.setText("Salir");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem1);
+
+        jMenuBar1.add(jMenu1);
+
+        setJMenuBar(jMenuBar1);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -108,12 +115,6 @@ public class MenuIngreso extends javax.swing.JFrame {
         MainMenu.setVisible(true);
         dispose();
     }//GEN-LAST:event_JBTNBicicletaActionPerformed
-
-    private void JBTNSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBTNSalirActionPerformed
-        
-        System.exit(0);
-        
-    }//GEN-LAST:event_JBTNSalirActionPerformed
 
     private void JBTNCarroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBTNCarroActionPerformed
        
@@ -139,6 +140,12 @@ public class MenuIngreso extends javax.swing.JFrame {
         MainMenu.setVisible(true);
         dispose();
     }//GEN-LAST:event_JBTNCamionetaActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        
+        System.exit(0);
+        
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -180,8 +187,10 @@ public class MenuIngreso extends javax.swing.JFrame {
     private javax.swing.JButton JBTNCamioneta;
     private javax.swing.JButton JBTNCarro;
     private javax.swing.JButton JBTNMoto;
-    private javax.swing.JButton JBTNSalir;
     private javax.swing.JLabel JLBLFondo;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     // End of variables declaration//GEN-END:variables
 }
