@@ -33,7 +33,7 @@ public class menuprincipal extends javax.swing.JFrame {
         initComponents();
         control =new controller();
         setLocationRelativeTo(null);
-        this.setIconImage(new ImageIcon(getClass().getResource("../imagenes/carrito.jpg")).getImage());
+        this.setIconImage(new ImageIcon(getClass().getResource("../imagenes/carro.png")).getImage());
         
     }
 
@@ -202,7 +202,8 @@ public class menuprincipal extends javax.swing.JFrame {
            ingresar();
            
         }
-        
+       JTFPlaca.setText("");
+       JTFPlaca.requestFocus();
         
     }//GEN-LAST:event_JBTNIngresarActionPerformed
 
@@ -210,14 +211,22 @@ public class menuprincipal extends javax.swing.JFrame {
        
          if(ConfirmarCampos())
         {
- 
-        
+            switch(JCBTipo_de_Vehiculo.getSelectedIndex())
+            {
+                case 0:break;
+                case 1:break;
+                case 2:break;
+                case 3:control.RetirarBiciController(JTFPlaca.getText(),JTFPropietario.getText());break;
+                
+            }        
         }
         
     }//GEN-LAST:event_JBTNRetirarActionPerformed
 
     private void JCBTipo_de_VehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JCBTipo_de_VehiculoActionPerformed
-        // TODO add your handling code here:
+       
+        
+        
     }//GEN-LAST:event_JCBTipo_de_VehiculoActionPerformed
 
     private void JBTNCuposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBTNCuposActionPerformed

@@ -21,6 +21,12 @@ public class controller {
       modelo=new model();
       }      
       
+     public void RetirarBiciController(String Num_Marco,String Propietario) 
+     {
+         modelo.RetirarBici(Num_Marco, Propietario);
+     }
+    
+      
       
     public int  revisar_parkingController(int Arreglo)
     {

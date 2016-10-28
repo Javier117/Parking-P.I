@@ -8,6 +8,7 @@ package modelo;
 import BO.*;
 import java.util.Iterator;
 import java.util.Scanner;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -20,7 +21,10 @@ public class model {
     Vehiculo[] ParkingCamionetas=new Vehiculo[20];
     bicicleta[] ParkingBicis=new bicicleta[20];
     
-    
+    int ingresosbicis=0;
+    int ingresosmotos=0;
+    int ingresoscarros=0;
+    int ingresoscamionetas=0;
     
     
    public void ingresarVehiculo(int Tipo_de_Vehiculo,Vehiculo V)
@@ -28,24 +32,59 @@ public class model {
        int puesto=revisar_parkingVehiculo(Tipo_de_Vehiculo);
        switch(Tipo_de_Vehiculo)
        {
-           case 0:ParkingCarros[puesto]=V;
+           case 0:
+                {
+                  if (ingresoscarros==30)
+                  {
+                      JOptionPane.showMessageDialog(null,"No hay mas espacio,busque otro parqueadero");
+                  }
+                  else
+                  {
+                  ParkingCarros[puesto]=V;
+                  ingresoscarros+=1;
                   System.out.println("hora: "+ParkingCarros[puesto].getHora_entrada()+":"+ParkingCarros[puesto].getMinutos_entrada());
-                  break;
-           case 1:ParkingMotos[puesto]=V;
-                  System.out.println("hora: "+ParkingMotos[puesto].getHora_entrada()+":"+ParkingMotos[puesto].getMinutos_entrada());
-                  break;
-           case 2:ParkingCamionetas[puesto]=V;
-                  System.out.println("hora: "+ParkingCamionetas[puesto].getHora_entrada()+":"+ParkingCamionetas[puesto].getMinutos_entrada());
-                  break;
+                  }
+                }break;
+           case 1:
+                {
+                    if (ingresosmotos==45)
+                  {
+                      JOptionPane.showMessageDialog(null,"No hay mas espacio,busque otro parqueadero");
+                  }
+                 else
+                  {
+                      ParkingMotos[puesto]=V;
+                      System.out.println("hora: "+ParkingMotos[puesto].getHora_entrada()+":"+ParkingMotos[puesto].getMinutos_entrada());
+                      ingresosmotos+=1;
+                  } 
+                } break;
+           case 2:if (ingresoscamionetas==20)
+                  {
+                      JOptionPane.showMessageDialog(null,"No hay mas espacio,busque otro parqueadero");
+                  }
+                  else
+                  {
+                      ParkingCamionetas[puesto]=V;
+                      System.out.println("hora: "+ParkingCamionetas[puesto].getHora_entrada()+":"+ParkingCamionetas[puesto].getMinutos_entrada());
+                      ingresoscamionetas+=1;
+                  }break;
        }
        
    } 
    
    public void ingresarBici(bicicleta bici)
-   {
+   {        
+       if(ingresosbicis>=20)
+        {
+        JOptionPane.showMessageDialog(null,"No hya mas espacio para su vehículo,por favor retirese");
+        }
+       else
+        {
             int puestobici=revisarParkingBicis();
             ParkingBicis[puestobici]=bici;
             System.out.println("hora: "+ParkingBicis[puestobici].getHora_entrada()+":"+ParkingBicis[puestobici].getMinutos_entrada());
+            this.ingresosbicis+=1;
+        }
    }
     
     public int revisarParkingBicis()
@@ -54,13 +93,14 @@ public class model {
         for(bicicleta x:ParkingBicis)
         {
             try
-            {
-                x.getMarco();
+            {   
+                
+                System.out.println("Bicicleta "+x.getMarco());
                 contador+=1;
             }
             catch(Exception ex)
             {
-                break;
+               
             }
         }
         return contador;
@@ -88,16 +128,53 @@ public class model {
             }
             catch(Exception ex)
             {
-                break;
+               
             }
         }
         return contador;
     }
     
    
+    public void RetirarBici(String Num_Marco,String Propietario)
+    {
+        bicicleta[] newParkingBicis=new bicicleta[20];
+        int contador=0;
+        for (bicicleta b:ParkingBicis)
+        {   
+            
+           
+            try
+            {   
+                if(b.getMarco().equals(Num_Marco) && b.getOwner().equals(Propietario))
+                {   
+                    contador+=1;
+                    System.out.println(b.getMarco()+" Retirada.");
+                    
+                }
+                else
+                {
+                    newParkingBicis[contador]=b;
+                    System.out.println(b.getMarco()+" bien");
+                    ParkingBicis= newParkingBicis;
+                    contador+=1;
+                }
+            }
+            catch(Exception EX)
+            {   
+                if(contador==ParkingBicis.length)
+                {
+                    ParkingBicis= newParkingBicis;
+                    break;
+                }
+                else contador+=1;
+            }
+            
+        }
+        
+        this.ingresosbicis-=0;
+        
+    }
 
-    
-   
     
     //GETTERS y SETTERS
     
@@ -132,6 +209,38 @@ public class model {
 
     public void setParkingMotos(Vehiculo[] ParkingMotos) {
         this.ParkingMotos = ParkingMotos;
+    }
+
+    public int getIngresosbicis() {
+        return ingresosbicis;
+    }
+
+    public void setIngresosbicis(int ingresosbicis) {
+        this.ingresosbicis = ingresosbicis;
+    }
+
+    public int getIngresosmotos() {
+        return ingresosmotos;
+    }
+
+    public void setIngresosmotos(int ingresosmotos) {
+        this.ingresosmotos = ingresosmotos;
+    }
+
+    public int getIngresoscarros() {
+        return ingresoscarros;
+    }
+
+    public void setIngresoscarros(int ingresoscarros) {
+        this.ingresoscarros = ingresoscarros;
+    }
+
+    public int getIngresoscamionetas() {
+        return ingresoscamionetas;
+    }
+
+    public void setIngresoscamionetas(int ingresoscamionetas) {
+        this.ingresoscamionetas = ingresoscamionetas;
     }
     
     
