@@ -49,12 +49,18 @@ public class menuprincipal extends javax.swing.JFrame {
         JLBLtipo = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         JLBLNom_owner = new javax.swing.JLabel();
-        JCBTipo_de_Vehiculo = new javax.swing.JComboBox<>();
-        JBTNCerrar = new javax.swing.JButton();
+        JCBTipo_de_Vehiculo = new javax.swing.JComboBox<String>();
         JLBLFecha = new javax.swing.JLabel();
         JBTNVolver = new javax.swing.JButton();
-        JBTNCupos = new javax.swing.JButton();
+        JLBLBicisContador = new javax.swing.JLabel();
+        JLBLCarrosContador = new javax.swing.JLabel();
+        JLBLCamionetasContador = new javax.swing.JLabel();
+        JLBLMotosContador = new javax.swing.JLabel();
         JLBLFondo = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        JMIActualizarhora = new javax.swing.JMenuItem();
+        JMISalir = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -63,23 +69,23 @@ public class menuprincipal extends javax.swing.JFrame {
         LBLTitulo.setFont(new java.awt.Font("Copperplate Gothic Light", 2, 48)); // NOI18N
         LBLTitulo.setForeground(new java.awt.Color(255, 255, 255));
         LBLTitulo.setText("Parking");
-        getContentPane().add(LBLTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 233, 42));
+        getContentPane().add(LBLTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 233, 42));
 
-        JBTNRetirar.setText("Retirar");
+        JBTNRetirar.setText("Retirar Vehículo");
         JBTNRetirar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JBTNRetirarActionPerformed(evt);
             }
         });
-        getContentPane().add(JBTNRetirar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 330, 120, 30));
+        getContentPane().add(JBTNRetirar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 330, 160, 30));
 
-        JBTNIngresar.setText("Ingresar");
+        JBTNIngresar.setText("Ingresar Vehículo");
         JBTNIngresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JBTNIngresarActionPerformed(evt);
             }
         });
-        getContentPane().add(JBTNIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 330, 120, 30));
+        getContentPane().add(JBTNIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 330, 150, 30));
 
         JTFPlaca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -124,7 +130,7 @@ public class menuprincipal extends javax.swing.JFrame {
         getContentPane().add(JLBLNom_owner, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 260, 170, -1));
 
         JCBTipo_de_Vehiculo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        JCBTipo_de_Vehiculo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Carro", "Moto", "Camioneta", "Bicicleta" }));
+        JCBTipo_de_Vehiculo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Carro", "Moto", "Camioneta", "Bicicleta" }));
         JCBTipo_de_Vehiculo.setFocusable(false);
         JCBTipo_de_Vehiculo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -132,14 +138,6 @@ public class menuprincipal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(JCBTipo_de_Vehiculo, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 170, 230, -1));
-
-        JBTNCerrar.setText("Cerrar");
-        JBTNCerrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JBTNCerrarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(JBTNCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 10, -1, -1));
 
         JLBLFecha.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
         JLBLFecha.setForeground(new java.awt.Color(255, 255, 255));
@@ -152,18 +150,61 @@ public class menuprincipal extends javax.swing.JFrame {
                 JBTNVolverActionPerformed(evt);
             }
         });
-        getContentPane().add(JBTNVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 10, 70, -1));
+        getContentPane().add(JBTNVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 10, 70, -1));
 
-        JBTNCupos.setText("Cupos");
-        JBTNCupos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JBTNCuposActionPerformed(evt);
-            }
-        });
-        getContentPane().add(JBTNCupos, new org.netbeans.lib.awtextra.AbsoluteConstraints(343, 10, 70, -1));
+        JLBLBicisContador.setFont(new java.awt.Font("Agency FB", 1, 14)); // NOI18N
+        JLBLBicisContador.setForeground(new java.awt.Color(255, 255, 255));
+        JLBLBicisContador.setText("Bicis:0/20");
+        getContentPane().add(JLBLBicisContador, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, 120, 20));
+
+        JLBLCarrosContador.setFont(new java.awt.Font("Agency FB", 1, 14)); // NOI18N
+        JLBLCarrosContador.setForeground(new java.awt.Color(255, 255, 255));
+        JLBLCarrosContador.setText("Carros:0/30");
+        getContentPane().add(JLBLCarrosContador, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 100, 20));
+
+        JLBLCamionetasContador.setFont(new java.awt.Font("Agency FB", 1, 14)); // NOI18N
+        JLBLCamionetasContador.setForeground(new java.awt.Color(255, 255, 255));
+        JLBLCamionetasContador.setText("Camionetas:0/20");
+        getContentPane().add(JLBLCamionetasContador, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, 130, 20));
+
+        JLBLMotosContador.setFont(new java.awt.Font("Agency FB", 1, 14)); // NOI18N
+        JLBLMotosContador.setForeground(new java.awt.Color(255, 255, 255));
+        JLBLMotosContador.setText("Motos:0/45");
+        getContentPane().add(JLBLMotosContador, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 110, 20));
 
         JLBLFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo2.jpg"))); // NOI18N
         getContentPane().add(JLBLFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-110, -10, 750, 410));
+
+        jMenu1.setBorder(null);
+        jMenu1.setText("Archivo");
+
+        JMIActualizarhora.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
+        JMIActualizarhora.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconorelog.png"))); // NOI18N
+        JMIActualizarhora.setText("Atualizar Hora");
+        JMIActualizarhora.setToolTipText("");
+        JMIActualizarhora.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        JMIActualizarhora.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JMIActualizarhoraActionPerformed(evt);
+            }
+        });
+        jMenu1.add(JMIActualizarhora);
+
+        JMISalir.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_X, java.awt.event.InputEvent.CTRL_MASK));
+        JMISalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconsalir.png"))); // NOI18N
+        JMISalir.setText("Salir");
+        JMISalir.setToolTipText("Cierre el programa");
+        JMISalir.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        JMISalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JMISalirActionPerformed(evt);
+            }
+        });
+        jMenu1.add(JMISalir);
+
+        jMenuBar1.add(jMenu1);
+
+        setJMenuBar(jMenuBar1);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -175,12 +216,6 @@ public class menuprincipal extends javax.swing.JFrame {
     private void JTFPlacaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFPlacaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_JTFPlacaActionPerformed
-
-    private void JBTNCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBTNCerrarActionPerformed
-
-        System.exit(0);
-
-    }//GEN-LAST:event_JBTNCerrarActionPerformed
 
     private void JBTNVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBTNVolverActionPerformed
 
@@ -195,7 +230,8 @@ public class menuprincipal extends javax.swing.JFrame {
 
         if (ConfirmarCampos()) {
             ingresar();
-
+            revisarCupos();
+          definirfecha();
         }
         JTFPlaca.setText("");
         JTFPlaca.requestFocus();
@@ -206,35 +242,35 @@ public class menuprincipal extends javax.swing.JFrame {
 
         if (ConfirmarCampos()) {
             switch (JCBTipo_de_Vehiculo.getSelectedIndex()) {
-                case 0:
+                case 0:revisarCupos();definirfecha();
                     break;
-                case 1:
+                case 1:revisarCupos();definirfecha();
                     break;
-                case 2:
+                case 2:revisarCupos();definirfecha();
                     break;
                 case 3:
-                    control.RetirarBiciController(JTFPlaca.getText(), JTFPropietario.getText());
+                    control.RetirarBiciController(JTFPlaca.getText(), JTFPropietario.getText());revisarCupos();definirfecha();
                     break;
-
+                    
             }
         }
 
     }//GEN-LAST:event_JBTNRetirarActionPerformed
 
     private void JCBTipo_de_VehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JCBTipo_de_VehiculoActionPerformed
-
+       
+        switch(JCBTipo_de_Vehiculo.getSelectedIndex()){
+           
+            case 3:JTFModelo.setEditable(false);
+            JTFModelo.setText("");
+            JLBLPlaca.setText("Número de marco");break;
+                
+            default:JTFModelo.setEditable(true);
+                JTFModelo.setText("");
+            JLBLPlaca.setText("Placa");break;
+        }
 
     }//GEN-LAST:event_JCBTipo_de_VehiculoActionPerformed
-
-    private void JBTNCuposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBTNCuposActionPerformed
-
-        System.out.println("Cupos carros: " + control.revisar_parkingController(0));
-        System.out.println("Cupos motos: " + control.revisar_parkingController(1));
-        System.out.println("Cupos camionetas: " + control.revisar_parkingController(2));
-        System.out.println("Cupos bicicletas: " + control.revisar_parkingBicisController());
-
-
-    }//GEN-LAST:event_JBTNCuposActionPerformed
 
     private void JTFPropietarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JTFPropietarioKeyTyped
         // TODO add your handling code here:
@@ -251,6 +287,15 @@ public class menuprincipal extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_JTFPropietarioKeyTyped
+
+    private void JMISalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMISalirActionPerformed
+       System.exit(0);
+    }//GEN-LAST:event_JMISalirActionPerformed
+
+    private void JMIActualizarhoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMIActualizarhoraActionPerformed
+        
+        definirfecha();
+    }//GEN-LAST:event_JMIActualizarhoraActionPerformed
 
     /**
      * @param args the command line arguments
@@ -372,7 +417,18 @@ public class menuprincipal extends javax.swing.JFrame {
         }
 
     }
-
+            
+    
+        public void revisarCupos(){
+            
+            JLBLCarrosContador.setText("Carros: " + control.revisar_parkingController(0)+"/30");
+            JLBLMotosContador.setText("Motos: " + control.revisar_parkingController(1)+"/45");
+            JLBLCamionetasContador.setText("Camionetas: " + control.revisar_parkingController(2)+"/20");
+            JLBLBicisContador.setText("Bicicletas: " + control.revisar_parkingBicisController()+"/20");
+        }
+        
+        
+        
     public boolean isMenuMoto() {
         return MenuMoto;
     }
@@ -407,21 +463,27 @@ public class menuprincipal extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton JBTNCerrar;
-    private javax.swing.JButton JBTNCupos;
     private javax.swing.JButton JBTNIngresar;
     private javax.swing.JButton JBTNRetirar;
     private javax.swing.JButton JBTNVolver;
     private javax.swing.JComboBox<String> JCBTipo_de_Vehiculo;
+    private javax.swing.JLabel JLBLBicisContador;
+    private javax.swing.JLabel JLBLCamionetasContador;
+    private javax.swing.JLabel JLBLCarrosContador;
     private javax.swing.JLabel JLBLFecha;
     private javax.swing.JLabel JLBLFondo;
+    private javax.swing.JLabel JLBLMotosContador;
     private javax.swing.JLabel JLBLNom_owner;
     private javax.swing.JLabel JLBLPlaca;
     private javax.swing.JLabel JLBLtipo;
+    private javax.swing.JMenuItem JMIActualizarhora;
+    private javax.swing.JMenuItem JMISalir;
     private javax.swing.JTextField JTFModelo;
     private javax.swing.JTextField JTFPlaca;
     private javax.swing.JTextField JTFPropietario;
     private javax.swing.JLabel LBLTitulo;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenuBar jMenuBar1;
     // End of variables declaration//GEN-END:variables
 }

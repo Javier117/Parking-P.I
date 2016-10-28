@@ -74,7 +74,7 @@ public class MenuIngreso extends javax.swing.JFrame {
         });
         getContentPane().add(JBTNCamioneta, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, 170, 130));
 
-        JBTNCarro.setBackground(new java.awt.Color(204, 204, 204));
+        JBTNCarro.setBackground(new java.awt.Color(255, 255, 255));
         JBTNCarro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/carro_icono.png"))); // NOI18N
         JBTNCarro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         JBTNCarro.addActionListener(new java.awt.event.ActionListener() {
