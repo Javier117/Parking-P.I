@@ -105,7 +105,7 @@ public class model {
         int contador = 0;
         for (Vehiculo x : review) {
             try {
-                x.getPlaca();
+                System.out.println(x.getPlaca());
                 contador += 1;
             } catch (Exception ex) {
 
@@ -113,7 +113,49 @@ public class model {
         }
         return contador;
     }
-
+    
+    public void retirarVehiculo(int arreglo,String Placa,String Modelo,String Propietario,int hora_salida,int min_salida){
+        Vehiculo[] newParkingVehicle=ParkingCarros;
+        int legth=this.ParkingCarros.length;
+        switch(arreglo)
+        {
+            case 0:break;
+            case 1:newParkingVehicle=this.ParkingMotos;legth=this.ParkingMotos.length;break;
+            case 2:newParkingVehicle=this.ParkingCamionetas;legth=this.ParkingCamionetas.length;break;
+            default:System.out.println("Error");break;
+        }
+    int contador = 0;
+        for (Vehiculo x :newParkingVehicle) {
+            try {
+                if (x.getPlaca().equals(Placa) && x.getOwner().equals(Propietario) && x.getModelo().equals(Modelo)) {
+                    contador += 1;
+                    System.out.println(x.getPlaca() +" modelo: "+x.getModelo()+" Retirado.");
+                    
+                    JOptionPane.showMessageDialog(null,"Hora de entrada \n"+x.getHora_entrada()+":"+x.getMinutos_entrada()+"\n"
+                               +"Hora salida"+hora_salida+":"+min_salida+"\n"+
+                            calculartarifa(x.getHora_entrada(),x.getMinutos_entrada(),hora_salida,min_salida)+" Pesos","Tarifa -"+x.getPlaca()+"- "+x.getOwner(),JOptionPane.INFORMATION_MESSAGE);
+                } else {       
+                    newParkingVehicle[contador]=x;    
+                     contador+=1;
+                    }
+                     
+                }
+             catch (Exception EX) {
+                if (contador == legth) {
+                    switch(arreglo){
+                            case 0:this.ParkingCarros=newParkingVehicle;this.ingresoscarros-=1;break;
+                            case 1:ParkingMotos=newParkingVehicle;this.ingresosmotos-=1;break;
+                            case 2:ParkingCamionetas=newParkingVehicle;this.ingresoscamionetas-=1;break;
+                            default:System.out.println("Error");break;
+                        } 
+                            break;
+                } else {
+                    contador += 1;
+                }
+            }
+        }
+    }
+    
     public void RetirarBici(String Num_Marco, String Propietario,int hora_salida,int min_salida) {
         bicicleta[] newParkingBicis = new bicicleta[20];
         int contador = 0;
@@ -143,7 +185,7 @@ public class model {
 
         }
 
-        this.ingresosbicis -= 0;
+        this.ingresosbicis -=1;
 
     }
 

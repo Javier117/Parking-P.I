@@ -243,11 +243,17 @@ public class menuprincipal extends javax.swing.JFrame {
 
         if (ConfirmarCampos()) {
             switch (JCBTipo_de_Vehiculo.getSelectedIndex()) {
-                case 0:revisarCupos();definirfecha();
+                case 0:control.retirarVehiculoController(0,JTFPlaca.getText(),
+                                    JTFModelo.getText(),JTFPropietario.getText(),this.getHora(),
+                                    this.getMinuto());revisarCupos();definirfecha();
                     break;
-                case 1:revisarCupos();definirfecha();
+                case 1:control.retirarVehiculoController(1,JTFPlaca.getText(),
+                                    JTFModelo.getText(),JTFPropietario.getText(),this.getHora(),
+                                    this.getMinuto());revisarCupos();definirfecha();
                     break;
-                case 2:revisarCupos();definirfecha();
+                case 2:control.retirarVehiculoController(3,JTFPlaca.getText(),
+                                    JTFModelo.getText(),JTFPropietario.getText(),this.getHora(),
+                                    this.getMinuto());revisarCupos();definirfecha();
                     break;
                 case 3:
                     control.RetirarBiciController(JTFPlaca.getText(), JTFPropietario.getText(),this.getHora(),this.getMinuto());revisarCupos();definirfecha();

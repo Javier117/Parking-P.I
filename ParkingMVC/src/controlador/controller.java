@@ -26,7 +26,11 @@ public class controller {
          modelo.RetirarBici(Num_Marco, Propietario,hora_salida,min_salida);
      }
     
-      
+    public void retirarVehiculoController(int arreglo,String Placa,String Modelo,String Propietario,int hora_salida,int min_salida){
+        modelo.retirarVehiculo(arreglo, Placa, Modelo, Propietario, hora_salida, min_salida);
+        
+    }
+
       
     public int  revisar_parkingController(int Arreglo)
     {
