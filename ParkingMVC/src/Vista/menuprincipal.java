@@ -26,6 +26,7 @@ public class menuprincipal extends javax.swing.JFrame {
     bicicleta Bici;
     int hora;
     int minuto;
+    int seg;
 
     public menuprincipal() {
         initComponents();
@@ -49,7 +50,7 @@ public class menuprincipal extends javax.swing.JFrame {
         JLBLtipo = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         JLBLNom_owner = new javax.swing.JLabel();
-        JCBTipo_de_Vehiculo = new javax.swing.JComboBox<String>();
+        JCBTipo_de_Vehiculo = new javax.swing.JComboBox<>();
         JLBLFecha = new javax.swing.JLabel();
         JBTNVolver = new javax.swing.JButton();
         JLBLBicisContador = new javax.swing.JLabel();
@@ -130,7 +131,7 @@ public class menuprincipal extends javax.swing.JFrame {
         getContentPane().add(JLBLNom_owner, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 260, 170, -1));
 
         JCBTipo_de_Vehiculo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        JCBTipo_de_Vehiculo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Carro", "Moto", "Camioneta", "Bicicleta" }));
+        JCBTipo_de_Vehiculo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Carro", "Moto", "Camioneta", "Bicicleta" }));
         JCBTipo_de_Vehiculo.setFocusable(false);
         JCBTipo_de_Vehiculo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -142,7 +143,7 @@ public class menuprincipal extends javax.swing.JFrame {
         JLBLFecha.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
         JLBLFecha.setForeground(new java.awt.Color(255, 255, 255));
         JLBLFecha.setText("--:--:--");
-        getContentPane().add(JLBLFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 50, 270, 40));
+        getContentPane().add(JLBLFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 50, 310, 40));
 
         JBTNVolver.setText("Volver");
         JBTNVolver.addActionListener(new java.awt.event.ActionListener() {
@@ -249,7 +250,7 @@ public class menuprincipal extends javax.swing.JFrame {
                 case 2:revisarCupos();definirfecha();
                     break;
                 case 3:
-                    control.RetirarBiciController(JTFPlaca.getText(), JTFPropietario.getText());revisarCupos();definirfecha();
+                    control.RetirarBiciController(JTFPlaca.getText(), JTFPropietario.getText(),this.getHora(),this.getMinuto());revisarCupos();definirfecha();
                     break;
                     
             }
@@ -362,13 +363,14 @@ public class menuprincipal extends javax.swing.JFrame {
     }
 
     public void definirfecha() {
+        
         Calendar fecha = Calendar.getInstance();
         int mes = fecha.get(Calendar.MONTH) + 1;
         int dia = fecha.get(Calendar.DAY_OF_MONTH);
+        seg=fecha.get(Calendar.SECOND);
         hora = fecha.get(Calendar.HOUR_OF_DAY);
         minuto = fecha.get(Calendar.MINUTE);
         this.JLBLFecha.setText("Mes: " + mes + "|Día: " + dia + " |Hora " + hora + ":" + minuto);
-
     }
 
     private boolean ConfirmarCampos() {
@@ -461,6 +463,22 @@ public class menuprincipal extends javax.swing.JFrame {
         this.MenuCarro = MenuCarro;
     }
 
+    public int getHora() {
+        definirfecha();
+        return hora;
+    }
+
+    public int getMinuto() {
+        definirfecha();
+        return minuto;
+    }
+
+    public int getSeg() {
+        definirfecha();
+        return seg;
+    }
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JBTNIngresar;

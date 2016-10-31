@@ -47,6 +47,7 @@ public class MenuIngreso extends javax.swing.JFrame {
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        JBTNBicicleta.setBackground(new java.awt.Color(102, 102, 102));
         JBTNBicicleta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/bike_icono.png"))); // NOI18N
         JBTNBicicleta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         JBTNBicicleta.addActionListener(new java.awt.event.ActionListener() {
@@ -56,6 +57,7 @@ public class MenuIngreso extends javax.swing.JFrame {
         });
         getContentPane().add(JBTNBicicleta, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 250, 170, 130));
 
+        JBTNMoto.setBackground(new java.awt.Color(102, 102, 102));
         JBTNMoto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/moto_icono.png"))); // NOI18N
         JBTNMoto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         JBTNMoto.addActionListener(new java.awt.event.ActionListener() {
@@ -65,6 +67,7 @@ public class MenuIngreso extends javax.swing.JFrame {
         });
         getContentPane().add(JBTNMoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 80, 170, 130));
 
+        JBTNCamioneta.setBackground(new java.awt.Color(102, 102, 102));
         JBTNCamioneta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/camioneta_icono.png"))); // NOI18N
         JBTNCamioneta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         JBTNCamioneta.addActionListener(new java.awt.event.ActionListener() {
@@ -74,7 +77,7 @@ public class MenuIngreso extends javax.swing.JFrame {
         });
         getContentPane().add(JBTNCamioneta, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, 170, 130));
 
-        JBTNCarro.setBackground(new java.awt.Color(255, 255, 255));
+        JBTNCarro.setBackground(new java.awt.Color(102, 102, 102));
         JBTNCarro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/carro_icono.png"))); // NOI18N
         JBTNCarro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         JBTNCarro.addActionListener(new java.awt.event.ActionListener() {

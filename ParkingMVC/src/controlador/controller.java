@@ -21,9 +21,9 @@ public class controller {
       modelo=new model();
       }      
       
-     public void RetirarBiciController(String Num_Marco,String Propietario) 
+     public void RetirarBiciController(String Num_Marco,String Propietario,int hora_salida,int min_salida) 
      {
-         modelo.RetirarBici(Num_Marco, Propietario);
+         modelo.RetirarBici(Num_Marco, Propietario,hora_salida,min_salida);
      }
     
       

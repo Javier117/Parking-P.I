@@ -114,19 +114,21 @@ public class model {
         return contador;
     }
 
-    public void RetirarBici(String Num_Marco, String Propietario) {
+    public void RetirarBici(String Num_Marco, String Propietario,int hora_salida,int min_salida) {
         bicicleta[] newParkingBicis = new bicicleta[20];
         int contador = 0;
         for (bicicleta b : ParkingBicis) {
-
             try {
                 if (b.getMarco().equals(Num_Marco) && b.getOwner().equals(Propietario)) {
                     contador += 1;
                     System.out.println(b.getMarco() + " Retirada.");
+                    
+                    JOptionPane.showMessageDialog(null,"Hora de entrada \n"+b.getHora_entrada()+":"+b.getMinutos_entrada()+"\n"
+                               +"Hora salida"+hora_salida+":"+min_salida+"\n"+
+                            calculartarifa(b.getHora_entrada(),b.getMinutos_entrada(),hora_salida,min_salida)+" Pesos","Tarifa -"+b.getMarco()+"- "+b.getOwner(),JOptionPane.INFORMATION_MESSAGE);
 
                 } else {
                     newParkingBicis[contador] = b;
-                    System.out.println(b.getMarco() + " bien");
                     ParkingBicis = newParkingBicis;
                     contador += 1;
                 }
@@ -145,6 +147,22 @@ public class model {
 
     }
 
+        private int calculartarifa(int hora_entrada,int minuto_entrada,int hora_salida,int min_salida){
+        // minuto a 50
+        int totalentrada=hora_entrada*60;
+        totalentrada+=minuto_entrada;
+        int total_salida=hora_salida*60;
+        total_salida+=min_salida;
+        int tarifa=totalentrada-total_salida;
+         if(tarifa<0){
+            tarifa*=-1;
+        }
+        
+        tarifa*=50;
+        return tarifa;
+        }
+    
+    
     //GETTERS y SETTERS
     public bicicleta[] getParkingBicis() {
         return ParkingBicis;
