@@ -27,6 +27,7 @@ public class menuprincipal extends javax.swing.JFrame {
     int hora;
     int minuto;
     int seg;
+    int numeroCaracteres;
 
     public menuprincipal() {
         initComponents();
@@ -50,7 +51,7 @@ public class menuprincipal extends javax.swing.JFrame {
         JLBLtipo = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         JLBLNom_owner = new javax.swing.JLabel();
-        JCBTipo_de_Vehiculo = new javax.swing.JComboBox<>();
+        JCBTipo_de_Vehiculo = new javax.swing.JComboBox<String>();
         JLBLFecha = new javax.swing.JLabel();
         JBTNVolver = new javax.swing.JButton();
         JLBLBicisContador = new javax.swing.JLabel();
@@ -93,6 +94,11 @@ public class menuprincipal extends javax.swing.JFrame {
                 JTFPlacaActionPerformed(evt);
             }
         });
+        JTFPlaca.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                JTFPlacaKeyTyped(evt);
+            }
+        });
         getContentPane().add(JTFPlaca, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 130, 230, -1));
 
         JLBLPlaca.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -131,7 +137,7 @@ public class menuprincipal extends javax.swing.JFrame {
         getContentPane().add(JLBLNom_owner, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 260, 170, -1));
 
         JCBTipo_de_Vehiculo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        JCBTipo_de_Vehiculo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Carro", "Moto", "Camioneta", "Bicicleta" }));
+        JCBTipo_de_Vehiculo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Carro", "Moto", "Camioneta", "Bicicleta" }));
         JCBTipo_de_Vehiculo.setFocusable(false);
         JCBTipo_de_Vehiculo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -270,11 +276,15 @@ public class menuprincipal extends javax.swing.JFrame {
            
             case 3:JTFModelo.setEditable(false);
             JTFModelo.setText("");
-            JLBLPlaca.setText("Número de marco");break;
+            JLBLPlaca.setText("Número de marco");
+            numeroCaracteres=10;
+            break;
                 
             default:JTFModelo.setEditable(true);
                 JTFModelo.setText("");
-            JLBLPlaca.setText("Placa");break;
+            JLBLPlaca.setText("Placa");
+            numeroCaracteres=6;
+            break;
         }
 
     }//GEN-LAST:event_JCBTipo_de_VehiculoActionPerformed
@@ -303,6 +313,23 @@ public class menuprincipal extends javax.swing.JFrame {
         
         definirfecha();
     }//GEN-LAST:event_JMIActualizarhoraActionPerformed
+
+    private void JTFPlacaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JTFPlacaKeyTyped
+        // TODO add your handling code here:
+        
+        char c = evt.getKeyChar();
+        if(Character.isLowerCase(c)){
+            String cad=(""+c).toUpperCase();
+            c=cad.charAt(0);
+            evt.setKeyChar(c);
+            }
+        
+        if(JTFPlaca.getText().length()>numeroCaracteres)
+        {
+            evt.consume();
+            JOptionPane.showMessageDialog(null, "No se puede agregar más caracteres");
+        }
+    }//GEN-LAST:event_JTFPlacaKeyTyped
 
     /**
      * @param args the command line arguments
