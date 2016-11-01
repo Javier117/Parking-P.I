@@ -257,7 +257,7 @@ public class menuprincipal extends javax.swing.JFrame {
                                     JTFModelo.getText(),JTFPropietario.getText(),this.getHora(),
                                     this.getMinuto());revisarCupos();definirfecha();
                     break;
-                case 2:control.retirarVehiculoController(3,JTFPlaca.getText(),
+                case 2:control.retirarVehiculoController(2,JTFPlaca.getText(),
                                     JTFModelo.getText(),JTFPropietario.getText(),this.getHora(),
                                     this.getMinuto());revisarCupos();definirfecha();
                     break;
